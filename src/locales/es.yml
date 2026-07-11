@@ -4,6 +4,7 @@ extDescription: Read Frog es una extensión de navegador de código abierto dise
 uninstallSurveyUrl: https://tally.so/r/nPK6Ob
 account:
   login: Iniciar sesión
+  webApp: Aplicación web
   logout: Cerrar sesión
   logoutError: No se pudo cerrar sesión. Inténtalo de nuevo.
 dataTypes:

@@ -4,6 +4,7 @@ extDescription: Read Frog is an open source browser extension designed to help y
 uninstallSurveyUrl: https://tally.so/r/nPK6Ob
 account:
   login: Log in
+  webApp: Web app
   logout: Log out
   logoutError: Failed to log out. Please try again.
 dataTypes:
