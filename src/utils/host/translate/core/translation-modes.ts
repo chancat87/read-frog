@@ -29,7 +29,7 @@ import { findPreviousTranslatedWrapperInside } from "../dom/translation-wrapper"
 import { insertVirtualParagraphWrappers } from "../dom/virtual-paragraph-insertion"
 import { shouldFilterSmallParagraph } from "../filter-small-paragraph"
 import { isHtmlAttributeMarkerIntegrityError } from "../html-attribute-markers"
-import { prepareTranslationText } from "../text-preparation"
+import { normalizeForComparison } from "../text-preparation"
 import { translateTextForPage } from "../translate-variants"
 import { setTranslationDirAndLang } from "../translation-attributes"
 import { createSpinnerInside, getTranslatedTextAndRemoveSpinner } from "../ui/spinner"
@@ -122,7 +122,10 @@ function getDisplayTranslation(
     return undefined
   }
 
-  return prepareTranslationText(sourceText) === prepareTranslationText(comparisonText)
+  // comparisonText lets the HTML-marker path (#1832) compare a normalized
+  // variant while the raw translatedText is what gets displayed; the folding
+  // normalization (#1835) applies on top for both paths.
+  return normalizeForComparison(sourceText) === normalizeForComparison(comparisonText)
     ? ""
     : translatedText
 }
